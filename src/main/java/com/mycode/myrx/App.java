@@ -12,7 +12,6 @@ import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.rx.ReactiveCamel;
 import rx.Observable;
-
 public class App {
 
     public static void main(String[] args) throws Exception {
