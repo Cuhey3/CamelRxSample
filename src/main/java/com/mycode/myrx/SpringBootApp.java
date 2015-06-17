@@ -32,8 +32,15 @@ public class SpringBootApp implements CommandLineRunner {
         FooObservableSource foo = factory.getBean(FooObservableSource.class);
         BarObservableSource bar = factory.getBean(BarObservableSource.class);
         GemuObservableSource gemu = factory.getBean(GemuObservableSource.class);
+        DamuObservableSource damu = factory.getBean(DamuObservableSource.class);
+        ZonObservableSource zon = factory.getBean(ZonObservableSource.class);
         foo.watch("bar,gemu");
-        bar.watch("gemu");
-        gemu.observed();
+        bar.watch("zon");
+        gemu.watch("damu");
+        damu.watch("zon");
+        zon.observed();
+        Thread.sleep(5000);
+        System.out.println("--------------------");
+        zon.observed();
     }
 }

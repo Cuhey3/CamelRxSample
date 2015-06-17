@@ -5,10 +5,10 @@ import java.util.logging.Logger;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BarObservableSource extends ObservableSource {
+public class DamuObservableSource extends ObservableSource {
 
-    public BarObservableSource() {
-        super("bar");
+    public DamuObservableSource() {
+        super("damu");
     }
 
     @Override
