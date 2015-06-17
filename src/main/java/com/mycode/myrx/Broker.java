@@ -17,12 +17,12 @@ public class Broker {
 
             @Override
             public <T> T evaluate(Exchange arg0, Class<T> arg1) {
-                Integer get1 = count.get(kind);
-                if (get1 == null) {
-                    get1 = 0;
+                Integer c = count.get(kind);
+                if (c == null) {
+                    c = 0;
                 }
                 ArrayList<String> list = new ArrayList<>();
-                for (int i = 0; i < get1; i++) {
+                for (int i = 0; i < c; i++) {
                     list.add(kind + i);
                 }
                 return (T) list;

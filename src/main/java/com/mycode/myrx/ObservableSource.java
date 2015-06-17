@@ -37,7 +37,7 @@ public abstract class ObservableSource extends RouteBuilder {
         createObservable(kindsString.split(","));
     }
 
-    public void start() {
+    public void observe() {
         Observable<Boolean> observable = Observable.just(true);
         rx.sendTo(observable, observedEndpoint);
     }
@@ -47,9 +47,6 @@ public abstract class ObservableSource extends RouteBuilder {
     }
 
     public void createObservable(String[] kinds) {
-        if (rx == null) {
-            System.out.println("gaooooooooo");
-        }
         Observable<Boolean> observable = null;
         if (kinds.length == 0) {
         } else if (kinds.length == 1) {

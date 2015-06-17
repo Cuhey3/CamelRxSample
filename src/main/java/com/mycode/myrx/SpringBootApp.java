@@ -35,6 +35,6 @@ public class SpringBootApp implements CommandLineRunner {
         foo.watch("bar");
         bar.watch("gemu");
         gemu.watch("foo");
-        gemu.start();
+        gemu.observe();
     }
 }
