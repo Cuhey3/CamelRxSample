@@ -37,7 +37,7 @@ public abstract class ObservableSource extends RouteBuilder {
         createObservable(kindsString.split(","));
     }
 
-    public void observe() {
+    public void observed() {
         Observable<Boolean> observable = Observable.just(true);
         rx.sendTo(observable, observedEndpoint);
     }
