@@ -37,7 +37,7 @@ public abstract class ObservableSource extends RouteBuilder {
         createObservable(kindsString.split(","));
     }
 
-    public void observe() {
+    public void observed() {
         Observable<Boolean> observable = Observable.just(true);
         rx.sendTo(observable, observedEndpoint);
     }
@@ -50,13 +50,13 @@ public abstract class ObservableSource extends RouteBuilder {
         Observable<Boolean> observable = null;
         if (kinds.length == 0) {
         } else if (kinds.length == 1) {
-            observable = rx.toObservable(broker.createEndpoint("seda:to_observe_" + kinds[0])).map((Message t) -> true);
+            observable = rx.toObservable(broker.createEndpoint("seda:to_observe_" + kinds[0])).map(b -> true);
         } else {
             List<Observable<Message>> list = new ArrayList<>();
             for (String k : kinds) {
                 list.add(rx.toObservable(broker.createEndpoint("seda:to_observe_" + k)));
             }
-            observable = Observable.combineLatest(list, (Object... args) -> true);
+            observable = Observable.combineLatest(list, b -> true);
         }
         if (observable != null) {
             rx.sendTo(observable, observedEndpoint);
